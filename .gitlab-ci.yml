@@ -1,0 +1,15 @@
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker build -t registry.gitlab.com/anestesia.loc/nginx_deploy_swarm .
+    - docker push registry.gitlab.com/anestesia.loc/nginx_deploy_swarm
+
+deploy:
+  stage: deploy
+  script:
+    - docker stack deploy -c docker-compose.yml
