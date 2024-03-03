@@ -6,7 +6,7 @@ stages:
 build:
   stage: build
   script:
-    - docker build -t registry.gitlab.com/anestesia.loc/nginx_deploy_swarm .
+    - docker build -t registry.gitlab.com/anestesia.loc/nginx_deploy_swarm ./nginx
     - docker push registry.gitlab.com/anestesia.loc/nginx_deploy_swarm
 
 deploy:
